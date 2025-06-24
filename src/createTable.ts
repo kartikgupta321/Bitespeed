@@ -1,22 +1,22 @@
 import pool from './db';
 
 const createTableQuery = `
-  CREATE TABLE IF NOT EXISTS Contact (
+  CREATE TABLE IF NOT EXISTS contact (
     id SERIAL PRIMARY KEY,
-    phoneNumber VARCHAR,
+    phone_number VARCHAR,
     email VARCHAR,
-    linkedId INTEGER REFERENCES Contact(id),
-    linkPrecedence VARCHAR(10) CHECK (linkPrecedence IN ('primary', 'secondary')),
-    createdAt TIMESTAMP DEFAULT NOW(),
-    updatedAt TIMESTAMP DEFAULT NOW(),
-    deletedAt TIMESTAMP
+    linked_id INTEGER REFERENCES contact(id),
+    link_precedence VARCHAR(10) NOT NULL CHECK (link_precedence IN ('primary', 'secondary')),
+    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    deleted_at TIMESTAMP
   );
 `;
 
 (async () => {
   try {
     await pool.query(createTableQuery);
-    console.log('✅ Contact table created (if not already).');
+    console.log('✅ contact table created (if not already).');
     process.exit(0);
   } catch (err) {
     console.error('❌ Error creating table:', err);

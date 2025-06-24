@@ -1,0 +1,67 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Bitespeed Identity API",
+    "version": "1.0.0",
+    "description": "API to reconcile customer identities based on email and phone number."
+  },
+  "paths": {
+    "/identify": {
+      "post": {
+        "summary": "Identify customer contact",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "doc@fluxkart.com"
+                  },
+                  "phoneNumber": {
+                    "type": "string",
+                    "example": "123456"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Consolidated contact data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "contact": {
+                      "type": "object",
+                      "properties": {
+                        "primaryContatctId": { "type": "integer" },
+                        "emails": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        },
+                        "phoneNumbers": {
+                          "type": "array",
+                          "items": { "type": "string" }
+                        },
+                        "secondaryContactIds": {
+                          "type": "array",
+                          "items": { "type": "integer" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
