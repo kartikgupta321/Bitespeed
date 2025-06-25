@@ -1,7 +1,8 @@
 # 🧠 Identity Reconciliation
 This is a Node.js + TypeScript backend service that consolidates customer identities based on email and phone number.
 
-# 🛜 Render Swagger Endpoint - **https://bitespeed-dmhr.onrender.com/api-docs/** */
+# 🛜 Render Swagger Endpoint - 
+**https://bitespeed-dmhr.onrender.com/api-docs/**
 
 
 
@@ -15,8 +16,8 @@ This is a Node.js + TypeScript backend service that consolidates customer identi
 ## 🛠 Setup Instructions
 
 1. **Clone the repo**
-  git clone https://github.com/your-username/bitespeed-backend.git
-  cd bitespeed-backend
+  git clone https://github.com/kartikgupta321/Bitespeed.git
+  cd Bitespeed
 
 2. **Install dependencies**
   npm install
